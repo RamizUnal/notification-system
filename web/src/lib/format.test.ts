@@ -27,7 +27,10 @@ describe("format", () => {
     expect(relativeTime(now - 5 * 3_600_000, now)).toBe("5h ago");
   });
 
-  it("shortens IDs to their first eight characters", () => {
-    expect(shortId("01a1fb2c-4259-7f1c-95e0-3369fd6a70a8")).toBe("01a1fb2c");
+  it("shortens IDs to their random tail, not the shared time prefix", () => {
+    const a = "01a1fb2c-4259-7f1c-95e0-3369fd6a70a8";
+    const b = "01a1fb2c-4259-7f1c-95e0-0d4be2c19f03";
+    expect(shortId(a)).toBe("fd6a70a8");
+    expect(shortId(a)).not.toBe(shortId(b));
   });
 });

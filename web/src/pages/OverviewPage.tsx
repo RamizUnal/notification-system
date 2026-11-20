@@ -88,6 +88,7 @@ export function OverviewPage() {
           <header className={styles.panelHead}>
             <h2 id="plot-title" className={styles.panelTitle}>
               Deliveries per second
+              {m && <span className={styles.panelNote}> · {bucketLabel(m.bucket_seconds)} buckets</span>}
             </h2>
             <ul className={styles.legend} aria-label="Line styles">
               {CHANNELS.map((ch) => (
@@ -121,6 +122,10 @@ export function OverviewPage() {
       {selected && <NotificationDrawer id={selected} onClose={() => update("id", null)} />}
     </div>
   );
+}
+
+function bucketLabel(seconds: number): string {
+  return seconds < 60 ? `${Math.round(seconds)} s` : `${Math.round(seconds / 60)} min`;
 }
 
 function Summary({ metrics, windowLabel }: { metrics: Metrics; windowLabel: string }) {

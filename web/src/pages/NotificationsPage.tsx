@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
-import { Search, X } from "lucide-react";
+import { Search, SlidersHorizontal, X } from "lucide-react";
 
 import type { Channel, Priority, Status } from "../api/client";
 import { useStream } from "../api/events";
@@ -70,7 +70,9 @@ export function NotificationsPage() {
     const next = current.includes(value) ? current.filter((v) => v !== value) : [...current, value];
     set(key, next.join(","));
   };
-  const active = ["status", "channel", "priority", "recipient", "batch_id", "from"].some((k) => params.get(k));
+  const activeCount = ["status", "channel", "priority", "recipient", "batch_id", "from"].filter((k) => params.get(k)).length;
+  const active = activeCount > 0;
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   return (
     <div className={styles.page}>
@@ -88,7 +90,17 @@ export function NotificationsPage() {
         )}
       </header>
 
-      <div className={styles.filters} role="group" aria-label="Filters">
+      <button
+        type="button"
+        className={styles.filterToggle}
+        aria-expanded={filtersOpen}
+        aria-controls="notification-filters"
+        onClick={() => setFiltersOpen((o) => !o)}
+      >
+        <SlidersHorizontal size={14} aria-hidden="true" />
+        Filters{active ? ` (${activeCount})` : ""}
+      </button>
+      <div id="notification-filters" className={styles.filters} data-open={filtersOpen || undefined} role="group" aria-label="Filters">
         <div className={styles.group}>
           <span className={styles.groupLabel}>Status</span>
           {STATUSES.map((s) => (

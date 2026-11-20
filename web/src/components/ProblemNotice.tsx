@@ -1,6 +1,7 @@
 import { RotateCw } from "lucide-react";
 
 import { ApiError } from "../api/client";
+import { shortId } from "../lib/format";
 import { Button } from "./Button";
 import styles from "./ProblemNotice.module.css";
 
@@ -48,7 +49,7 @@ export function ProblemNotice({ error, title, onRetry, hideFields }: ProblemNoti
           <ul className={styles.fields}>
             {problem.conflicts.map((c) => (
               <li key={c.index}>
-                Item {c.index + 1} reuses <code>{c.idempotency_key}</code> (notification <code>{c.notification_id.slice(0, 8)}</code>)
+                Item {c.index + 1} reuses <code>{c.idempotency_key}</code> (notification <code>{shortId(c.notification_id)}</code>)
               </li>
             ))}
           </ul>

@@ -103,7 +103,8 @@ func TestMetricsAggregates(t *testing.T) {
 	}
 	assert.Equal(t, 1, succeeded)
 	assert.Equal(t, 1, failed)
-	assert.Len(t, snap.Throughput, 61*3, "a point per bucket and channel, gaps filled with zeros")
+	assert.Equal(t, time.Second, snap.Bucket, "short windows use one-second buckets")
+	assert.Len(t, snap.Throughput, 301*3, "a point per bucket and channel, gaps filled with zeros")
 }
 
 func TestHeartbeatsFeedWorkerStatus(t *testing.T) {

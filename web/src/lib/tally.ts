@@ -19,7 +19,7 @@ export function tallyFor(m: ChannelMetrics, live: LiveRate, workers: Worker[]): 
       .sort()[0];
     return {
       state: "open",
-      label: "Off air",
+      label: "Circuit open",
       detail:
         retryAt && new Date(retryAt).getTime() > Date.now()
           ? `Provider failing; next probe ${relativeTime(retryAt)}`

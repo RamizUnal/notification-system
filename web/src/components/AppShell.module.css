@@ -117,7 +117,10 @@
     height: 44px;
     overflow-x: auto;
     margin: 0 calc(-1 * var(--s-4));
-    padding: 0 var(--s-2);
+    padding: 0 var(--s-6) 0 var(--s-2);
+    scrollbar-width: none;
+    /* Fade the trailing edge so the hidden tabs read as scrollable. */
+    mask-image: linear-gradient(to right, #000 82%, transparent);
   }
 }
 
@@ -133,10 +136,7 @@
   .controls {
     gap: var(--s-2);
   }
-  .controls > :nth-child(2) {
+  .controls > :nth-child(3) {
     display: none;
-  }
-  .controls > :first-child {
-    padding: 0 var(--s-2);
   }
 }

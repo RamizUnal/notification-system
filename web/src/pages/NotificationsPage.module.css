@@ -21,6 +21,10 @@
   color: var(--ink-2);
 }
 
+.filterToggle {
+  display: none;
+}
+
 .filters {
   display: flex;
   flex-direction: column;
@@ -91,4 +95,32 @@
 .more {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .filterToggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    align-self: flex-start;
+    height: 32px;
+    padding: 0 var(--s-3);
+    border: var(--hairline) solid var(--rule-strong);
+    background: transparent;
+    color: var(--ink);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .filterToggle[aria-expanded="true"] {
+    background: var(--panel-3);
+  }
+  .filters {
+    display: none;
+  }
+  .filters[data-open] {
+    display: flex;
+  }
+  .search {
+    width: 100%;
+  }
 }

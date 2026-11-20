@@ -7,6 +7,7 @@ import { burstPresets, type BurstPreset } from "../lib/demo";
 import { formatCount, shortId } from "../lib/format";
 import { Button } from "./Button";
 import { ProblemNotice } from "./ProblemNotice";
+import { ProviderSwitch } from "./ProviderSwitch";
 import { useToast } from "./Toasts";
 import styles from "./BurstMenu.module.css";
 
@@ -59,6 +60,7 @@ export function BurstMenu() {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-haspopup="menu"
+        aria-label="Send burst"
         busy={create.isPending}
       >
         <span className={styles.long}>Send burst</span>
@@ -77,6 +79,10 @@ export function BurstMenu() {
           <Link to="/compose?tab=batch" role="menuitem" className={styles.custom} onClick={() => setOpen(false)}>
             Build a custom batch…
           </Link>
+          <div className={styles.provider}>
+            <p className={styles.note}>Provider behaviour</p>
+            <ProviderSwitch />
+          </div>
           {create.isError && <ProblemNotice error={create.error} />}
         </div>
       )}

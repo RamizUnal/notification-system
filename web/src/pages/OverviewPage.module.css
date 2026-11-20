@@ -35,11 +35,16 @@
   color: var(--on-air);
 }
 
-/* The multiviewer: one grid, reflowing by whole monitors. */
+/*
+ * The multiviewer: one wall of monitors butted on a thin black mullion, so
+ * the label strips line up as a single band. It reflows by whole monitors.
+ */
 .wall {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--s-3);
+  gap: 2px;
+  padding: 2px;
+  background: #0b080c;
 }
 
 .lower {
@@ -69,6 +74,11 @@
 
 .panelTitle {
   font-size: var(--fs-md);
+}
+
+.panelNote {
+  color: var(--ink-2);
+  font-weight: 500;
 }
 
 .legend {

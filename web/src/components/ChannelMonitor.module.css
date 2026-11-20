@@ -8,7 +8,7 @@
   flex-direction: column;
   min-width: 0;
   background: var(--panel);
-  outline: var(--tally-width) solid var(--rule);
+  outline: var(--tally-width) solid transparent;
   outline-offset: calc(-1 * var(--tally-width));
   transition: outline-color var(--t-base) var(--ease-out), opacity var(--t-base) var(--ease-out);
 }

@@ -220,10 +220,10 @@
   overflow-wrap: anywhere;
 }
 
+/* Slides without fading, so the panel is never see-through over the list. */
 @keyframes slide {
   from {
     transform: translateX(24px);
-    opacity: 0;
   }
 }
 

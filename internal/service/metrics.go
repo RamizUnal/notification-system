@@ -14,8 +14,11 @@ const (
 	DefaultMetricsWindow = 5 * time.Minute
 	MinMetricsWindow     = time.Minute
 	MaxMetricsWindow     = 24 * time.Hour
-	// metricsBuckets is the number of points in the throughput series.
-	metricsBuckets = 60
+	// maxBuckets bounds the points per channel in the throughput series;
+	// minBucket keeps short windows at one-second resolution, so the series
+	// agrees with what a live per-second meter shows.
+	maxBuckets = 300
+	minBucket  = time.Second
 	// workerTTL is how long a worker counts as alive after its last heartbeat.
 	workerTTL = 15 * time.Second
 )
@@ -143,7 +146,7 @@ func (s *MetricsService) Snapshot(ctx context.Context, window time.Duration) (Me
 
 	now := s.now().UTC()
 	since := now.Add(-window)
-	bucket := window / metricsBuckets
+	bucket := max(minBucket, window/maxBuckets)
 
 	depth, err := s.repo.QueueDepth(ctx, now)
 	if err != nil {

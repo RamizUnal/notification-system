@@ -25,6 +25,7 @@ describe("tallyFor", () => {
     }];
     const t = tallyFor(metrics({ circuit: "open" }), { rate: 50, peak: 90 }, workers);
     expect(t.state).toBe("open");
+    expect(t.label).toBe("Circuit open");
     expect(t.detail).toMatch(/next probe in 1[12]s/);
   });
 

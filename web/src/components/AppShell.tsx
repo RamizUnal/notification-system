@@ -5,6 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { eventStream } from "../api/events";
 import { createEventApplier } from "../api/liveCache";
 import { BurstMenu } from "./BurstMenu";
+import { HouseClock } from "./HouseClock";
 import { ProviderSwitch } from "./ProviderSwitch";
 import { StreamTally } from "./StreamTally";
 import { ToastProvider } from "./Toasts";
@@ -55,6 +56,7 @@ export function AppShell() {
           ))}
         </nav>
         <div className={styles.controls}>
+          <HouseClock />
           <StreamTally />
           <ProviderSwitch />
           <BurstMenu />

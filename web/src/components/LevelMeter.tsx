@@ -37,6 +37,7 @@ export function LevelMeter({ label, value, peak, ceiling, segments = 20 }: Level
         {ceiling}
       </span>
       <div className={styles.column} aria-hidden="true">
+        <span className={styles.ticks} />
         {Array.from({ length: segments }, (_, i) => {
           const index = segments - 1 - i;
           return (

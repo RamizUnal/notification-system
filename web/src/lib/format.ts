@@ -53,8 +53,13 @@ export function formatMs(ms: number): string {
   return `${(ms / 1000).toFixed(2)} s`;
 }
 
+/**
+ * The last eight characters of an ID. IDs are UUIDv7, whose leading
+ * characters encode the creation time, so everything created within a
+ * minute shares a prefix; the random tail is what tells two IDs apart.
+ */
 export function shortId(id: string): string {
-  return id.slice(0, 8);
+  return id.slice(-8);
 }
 
 /** in 2s, 3s ago, 2m ago, 4h ago */

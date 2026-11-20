@@ -65,6 +65,11 @@
   display: none;
 }
 
+/* On wide screens the provider switch lives in the top bar instead. */
+.provider {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .long {
     display: none;
@@ -78,5 +83,13 @@
     left: var(--s-4);
     right: var(--s-4);
     width: auto;
+  }
+  .provider {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-1);
+    margin-top: var(--s-2);
+    padding: var(--s-2);
+    border-top: var(--hairline) solid var(--rule);
   }
 }
