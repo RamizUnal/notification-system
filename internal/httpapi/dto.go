@@ -2,6 +2,7 @@ package httpapi
 
 import (
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
@@ -97,6 +98,7 @@ type notificationResponse struct {
 	LastError         *string    `json:"last_error"`
 	ProviderMessageID *string    `json:"provider_message_id"`
 	CorrelationID     *string    `json:"correlation_id"`
+	TraceID           *string    `json:"trace_id"`
 	CreatedAt         time.Time  `json:"created_at"`
 	UpdatedAt         time.Time  `json:"updated_at"`
 	SentAt            *time.Time `json:"sent_at"`
@@ -121,6 +123,7 @@ func toNotificationResponse(n domain.Notification) notificationResponse {
 		LastError:         optional(n.LastError),
 		ProviderMessageID: optional(n.ProviderMessageID),
 		CorrelationID:     optional(n.CorrelationID),
+		TraceID:           optional(traceID(n.TraceParent)),
 		CreatedAt:         n.CreatedAt,
 		UpdatedAt:         n.UpdatedAt,
 		SentAt:            n.SentAt,
@@ -376,6 +379,16 @@ func toEventMessage(e domain.Event) eventMessage {
 		data.NotificationID = uuidString(&e.NotificationID)
 	}
 	return eventMessage{Type: string(e.Type), Data: data}
+}
+
+// traceID extracts the trace ID from a W3C traceparent header value
+// ("00-<trace-id>-<span-id>-<flags>"), or returns "" when there is none.
+func traceID(traceParent string) string {
+	parts := strings.Split(traceParent, "-")
+	if len(parts) != 4 || len(parts[1]) != 32 {
+		return ""
+	}
+	return parts[1]
 }
 
 func uuidString(id *uuid.UUID) *string {

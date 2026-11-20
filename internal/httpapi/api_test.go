@@ -110,6 +110,7 @@ func TestCreateNotification(t *testing.T) {
 
 		body := decode[map[string]any](t, rec)
 		assert.Equal(t, "queued", body["status"])
+		assert.Equal(t, "4bf92f3577b34da6a3ce929d0e0e4736", body["trace_id"], "the trace ID comes from the stored traceparent")
 		assert.Equal(t, "2026-11-20T12:00:00Z", body["next_attempt_at"])
 		assert.Nil(t, body["sent_at"], "absent values are explicit nulls")
 	})

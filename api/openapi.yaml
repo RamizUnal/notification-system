@@ -724,6 +724,10 @@ components:
         last_error: { type: string, nullable: true }
         provider_message_id: { type: string, nullable: true }
         correlation_id: { type: string, nullable: true }
+        trace_id:
+          type: string
+          nullable: true
+          description: Distributed trace that created and delivered the notification (open it in Jaeger).
         created_at: { type: string, format: date-time }
         updated_at: { type: string, format: date-time }
         sent_at: { type: string, format: date-time, nullable: true }

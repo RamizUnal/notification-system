@@ -111,5 +111,6 @@ func sampleNotification() domain.Notification {
 		ID: uuid.MustParse("0193a0b2-7c1e-7d4f-9a51-2b3c4d5e6f70"), Channel: domain.ChannelSMS,
 		Priority: domain.PriorityHigh, Recipient: "+905551234567", Content: "hello",
 		Status: domain.StatusQueued, MaxAttempts: 5, NextAttemptAt: now, CreatedAt: now, UpdatedAt: now,
+		TraceParent: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01",
 	}
 }
