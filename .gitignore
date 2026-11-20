@@ -31,3 +31,4 @@ web/*.tsbuildinfo
 
 # Design review captures (regenerated on demand)
 .impeccable/review/
+.impeccable/questions/
