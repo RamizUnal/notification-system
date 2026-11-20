@@ -105,7 +105,7 @@ func (d Draft) Validate(now time.Time) error {
 		}
 	}
 
-	if d.IdempotencyKey != "" && !validIdempotencyKey(d.IdempotencyKey) {
+	if d.IdempotencyKey != "" && !ValidIdempotencyKey(d.IdempotencyKey) {
 		verr.Add("idempotency_key", CodeInvalidFormat,
 			fmt.Sprintf("idempotency_key must be 1-%d visible ASCII characters", MaxIdempotencyKeyLength))
 	}
@@ -173,8 +173,9 @@ func validateContent(verr *ValidationError, content string, ch Channel, policy C
 	}
 }
 
-func validIdempotencyKey(key string) bool {
-	if len(key) > MaxIdempotencyKeyLength {
+// ValidIdempotencyKey reports whether key is 1-255 visible ASCII characters.
+func ValidIdempotencyKey(key string) bool {
+	if key == "" || len(key) > MaxIdempotencyKeyLength {
 		return false
 	}
 	for i := range len(key) {

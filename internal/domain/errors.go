@@ -3,6 +3,8 @@ package domain
 import (
 	"errors"
 	"fmt"
+
+	"github.com/google/uuid"
 )
 
 // Sentinel errors describe business outcomes, not technical failures. Lower
@@ -44,3 +46,25 @@ func (e *NotFoundError) Error() string {
 
 // Is makes errors.Is(err, ErrNotFound) true for every NotFoundError.
 func (e *NotFoundError) Is(target error) bool { return target == ErrNotFound }
+
+// KeyConflict is a batch item whose idempotency key already belongs to an
+// existing notification.
+type KeyConflict struct {
+	Index      int
+	Key        string
+	ExistingID uuid.UUID
+}
+
+// IdempotencyConflictError reports batch items whose idempotency keys are
+// already taken. Batches are atomic, so nothing of the batch was stored.
+// It matches ErrIdempotencyConflict with errors.Is.
+type IdempotencyConflictError struct {
+	Conflicts []KeyConflict
+}
+
+func (e *IdempotencyConflictError) Error() string {
+	return fmt.Sprintf("%d batch item(s) reuse idempotency keys of existing notifications", len(e.Conflicts))
+}
+
+// Is makes errors.Is(err, ErrIdempotencyConflict) true.
+func (e *IdempotencyConflictError) Is(target error) bool { return target == ErrIdempotencyConflict }
