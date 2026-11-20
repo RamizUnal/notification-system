@@ -1,0 +1,30 @@
+# Binaries and build output
+/bin/
+/dist/
+*.exe
+*.test
+*.out
+
+# Coverage
+coverage/
+coverage.*
+
+# Environment overrides (see .env.example)
+.env
+.env.*
+!.env.example
+
+# Frontend
+web/node_modules/
+web/dist/
+web/coverage/
+web/*.tsbuildinfo
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Local tool state
+.impeccable/config.local.json
