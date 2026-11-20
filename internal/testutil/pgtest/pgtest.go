@@ -37,26 +37,26 @@ var (
 
 // New returns a pool connected to a fresh, fully migrated database, and its
 // DSN. The database is dropped when the test finishes.
-func New(t testing.TB) (*pgxpool.Pool, string) {
-	t.Helper()
-	ensureServer(t)
-	dsn := createDatabase(t, templateDB)
-	return connect(t, dsn), dsn
+func New(tb testing.TB) (*pgxpool.Pool, string) {
+	tb.Helper()
+	ensureServer(tb)
+	dsn := createDatabase(tb, templateDB)
+	return connect(tb, dsn), dsn
 }
 
 // NewEmpty returns the DSN of a fresh database without any schema, for
 // testing the migrations themselves.
-func NewEmpty(t testing.TB) string {
-	t.Helper()
-	ensureServer(t)
-	return createDatabase(t, "template0")
+func NewEmpty(tb testing.TB) string {
+	tb.Helper()
+	ensureServer(tb)
+	return createDatabase(tb, "template0")
 }
 
-func ensureServer(t testing.TB) {
-	t.Helper()
+func ensureServer(tb testing.TB) {
+	tb.Helper()
 	setupOnce.Do(func() { setupErr = setup() })
 	if setupErr != nil {
-		t.Fatalf("pgtest: %v", setupErr)
+		tb.Fatalf("pgtest: %v", setupErr)
 	}
 }
 
@@ -101,14 +101,14 @@ func setup() error {
 	return nil
 }
 
-func createDatabase(t testing.TB, template string) string {
-	t.Helper()
+func createDatabase(tb testing.TB, template string) string {
+	tb.Helper()
 	name := "test_" + strings.ReplaceAll(uuid.NewString(), "-", "")
 	ctx := context.Background()
 
 	conn, err := pgx.Connect(ctx, serverDSN)
 	if err != nil {
-		t.Fatalf("pgtest: connect: %v", err)
+		tb.Fatalf("pgtest: connect: %v", err)
 	}
 	defer func() { _ = conn.Close(ctx) }()
 
@@ -118,32 +118,32 @@ func createDatabase(t testing.TB, template string) string {
 	_, err = conn.Exec(ctx, fmt.Sprintf("CREATE DATABASE %s TEMPLATE %s", name, template))
 	createMu.Unlock()
 	if err != nil {
-		t.Fatalf("pgtest: create database: %v", err)
+		tb.Fatalf("pgtest: create database: %v", err)
 	}
 
-	t.Cleanup(func() {
+	tb.Cleanup(func() {
 		cleanupCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 		defer cancel()
 		c, err := pgx.Connect(cleanupCtx, serverDSN)
 		if err != nil {
-			t.Logf("pgtest: drop database %s: %v", name, err)
+			tb.Logf("pgtest: drop database %s: %v", name, err)
 			return
 		}
 		defer func() { _ = c.Close(cleanupCtx) }()
 		if _, err := c.Exec(cleanupCtx, "DROP DATABASE IF EXISTS "+name+" WITH (FORCE)"); err != nil {
-			t.Logf("pgtest: drop database %s: %v", name, err)
+			tb.Logf("pgtest: drop database %s: %v", name, err)
 		}
 	})
 	return withDatabase(serverDSN, name)
 }
 
-func connect(t testing.TB, dsn string) *pgxpool.Pool {
-	t.Helper()
+func connect(tb testing.TB, dsn string) *pgxpool.Pool {
+	tb.Helper()
 	pool, err := pgstore.Connect(context.Background(), dsn, pgstore.PoolConfig{MaxConns: 20})
 	if err != nil {
-		t.Fatalf("pgtest: %v", err)
+		tb.Fatalf("pgtest: %v", err)
 	}
-	t.Cleanup(pool.Close)
+	tb.Cleanup(pool.Close)
 	return pool
 }
 

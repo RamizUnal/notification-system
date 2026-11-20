@@ -3,7 +3,6 @@ package postgres
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"log/slog"
 	"time"
@@ -113,20 +112,18 @@ func NewListener(pool *pgxpool.Pool, logger *slog.Logger) *Listener {
 // exponential backoff after connection failures.
 func (l *Listener) Listen(ctx context.Context, handle func(domain.Event)) error {
 	backoff := time.Second
-	for {
-		err := l.listen(ctx, handle)
-		if ctx.Err() != nil {
-			return nil
+	for ctx.Err() == nil {
+		if err := l.listen(ctx, handle); ctx.Err() == nil {
+			l.logger.WarnContext(ctx, "event listener disconnected; reconnecting",
+				slog.Any("error", err), slog.Duration("backoff", backoff))
+			select {
+			case <-ctx.Done():
+			case <-time.After(backoff):
+			}
+			backoff = min(2*backoff, 30*time.Second)
 		}
-		l.logger.WarnContext(ctx, "event listener disconnected; reconnecting",
-			slog.Any("error", err), slog.Duration("backoff", backoff))
-		select {
-		case <-ctx.Done():
-			return nil
-		case <-time.After(backoff):
-		}
-		backoff = min(2*backoff, 30*time.Second)
 	}
+	return nil
 }
 
 func (l *Listener) listen(ctx context.Context, handle func(domain.Event)) error {
@@ -148,10 +145,7 @@ func (l *Listener) listen(ctx context.Context, handle func(domain.Event)) error 
 	for {
 		n, err := conn.WaitForNotification(ctx)
 		if err != nil {
-			if errors.Is(err, context.Canceled) {
-				return nil
-			}
-			return fmt.Errorf("wait for notification: %w", err)
+			return fmt.Errorf("wait for notification: %w", err) // Listen tells shutdown from failure
 		}
 		event, err := decodeEvent(n.Payload)
 		if err != nil {

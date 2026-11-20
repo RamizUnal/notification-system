@@ -32,17 +32,16 @@ func recipientFor(ch domain.Channel) string {
 type draftOption func(*domain.Draft)
 
 func withKey(key string) draftOption      { return func(d *domain.Draft) { d.IdempotencyKey = key } }
-func withContent(c string) draftOption    { return func(d *domain.Draft) { d.Content = c } }
 func scheduledAt(t time.Time) draftOption { return func(d *domain.Draft) { d.ScheduledAt = &t } }
 
-func newNotification(t testing.TB, ch domain.Channel, p domain.Priority, now time.Time, opts ...draftOption) domain.Notification {
-	t.Helper()
+func newNotification(tb testing.TB, ch domain.Channel, p domain.Priority, now time.Time, opts ...draftOption) domain.Notification {
+	tb.Helper()
 	d := domain.Draft{Channel: ch, Priority: p, Recipient: recipientFor(ch), Content: "hello from the tests"}
 	for _, opt := range opts {
 		opt(&d)
 	}
 	n, err := domain.NewNotification(uuid.Must(uuid.NewV7()), d, now, 3)
-	require.NoError(t, err)
+	require.NoError(tb, err)
 	n.CorrelationID = "corr-" + n.ID.String()[:8]
 	return n
 }

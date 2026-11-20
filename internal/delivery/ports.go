@@ -95,7 +95,14 @@ type Observer interface {
 // NopObserver ignores every event.
 type NopObserver struct{}
 
+// Delivered implements Observer.
 func (NopObserver) Delivered(domain.Channel, domain.AttemptOutcome, time.Duration) {}
-func (NopObserver) Released(domain.Channel, string)                                {}
-func (NopObserver) CircuitChanged(domain.Channel, CircuitState)                    {}
-func (NopObserver) LeasesRecovered(int)                                            {}
+
+// Released implements Observer.
+func (NopObserver) Released(domain.Channel, string) {}
+
+// CircuitChanged implements Observer.
+func (NopObserver) CircuitChanged(domain.Channel, CircuitState) {}
+
+// LeasesRecovered implements Observer.
+func (NopObserver) LeasesRecovered(int) {}

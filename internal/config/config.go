@@ -69,7 +69,7 @@ func LoadAPI() (API, error) {
 	if err != nil {
 		return API{}, fmt.Errorf("read configuration: %w", err)
 	}
-	return cfg, cfg.Common.validate()
+	return cfg, cfg.validate()
 }
 
 // LoadWorker reads the worker configuration from the environment.

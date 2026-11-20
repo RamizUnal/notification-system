@@ -148,6 +148,16 @@ func (e *Engine) Status() Heartbeat {
 	return hb
 }
 
+// withdrawHeartbeat removes the worker's heartbeat on shutdown, with its own
+// deadline because the run context is already cancelled.
+func (e *Engine) withdrawHeartbeat() {
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	if err := e.heartbeats.Remove(ctx, e.cfg.WorkerID); err != nil {
+		e.logger.Warn("removing heartbeat failed", slog.Any("error", err))
+	}
+}
+
 // recoverLeases periodically requeues notifications whose worker died
 // mid-delivery. Every worker runs it; the store's update is idempotent.
 func (e *Engine) recoverLeases(ctx context.Context) error {
@@ -185,11 +195,7 @@ func (e *Engine) reportStatus(ctx context.Context) error {
 	for {
 		select {
 		case <-ctx.Done():
-			removeCtx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-			defer cancel()
-			if err := e.heartbeats.Remove(removeCtx, e.cfg.WorkerID); err != nil {
-				e.logger.Warn("removing heartbeat failed", slog.Any("error", err))
-			}
+			e.withdrawHeartbeat()
 			return nil
 		case <-ticker.C:
 			beat()

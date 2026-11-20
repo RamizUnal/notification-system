@@ -52,7 +52,7 @@ func TestTemplateService(t *testing.T) {
 		assert.Equal(t, "Code: 123456", out)
 
 		_, err = svc.Render(ctx, created.ID, nil)
-		verr := requireValidationFields(t, err, "variables")
-		assert.Equal(t, domain.CodeMissingVariables, verr.Fields[0].Code)
+		fields := requireValidationFields(t, err, "variables")
+		assert.Equal(t, domain.CodeMissingVariables, fields[0].Code)
 	})
 }

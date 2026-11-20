@@ -167,7 +167,8 @@ func (s *Server) record(m Message) time.Time {
 		s.totals["rejected"]++
 	}
 
-	times := append(s.arrivals[m.Channel], now)
+	s.arrivals[m.Channel] = append(s.arrivals[m.Channel], now)
+	times := s.arrivals[m.Channel]
 	cut := 0
 	for cut < len(times) && now.Sub(times[cut]) > rateWindow {
 		cut++

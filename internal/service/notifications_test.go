@@ -55,7 +55,9 @@ func smsInput() service.NotificationInput {
 	}
 }
 
-func requireValidationFields(t *testing.T, err error, want ...string) *domain.ValidationError {
+// requireValidationFields asserts err is a validation error about exactly
+// the wanted fields and returns its field errors.
+func requireValidationFields(t *testing.T, err error, want ...string) []domain.FieldError {
 	t.Helper()
 	var verr *domain.ValidationError
 	require.ErrorAs(t, err, &verr)
@@ -64,7 +66,7 @@ func requireValidationFields(t *testing.T, err error, want ...string) *domain.Va
 		got = append(got, f.Field)
 	}
 	assert.ElementsMatch(t, want, got)
-	return verr
+	return verr.Fields
 }
 
 func TestCreateStoresAQueuedNotification(t *testing.T) {
@@ -209,8 +211,8 @@ func TestCreateFromTemplate(t *testing.T) {
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
 			_, err := f.svc.Create(context.Background(), tc.input)
-			verr := requireValidationFields(t, err, tc.field)
-			assert.Equal(t, tc.code, verr.Fields[0].Code)
+			fields := requireValidationFields(t, err, tc.field)
+			assert.Equal(t, tc.code, fields[0].Code)
 		})
 	}
 }
@@ -255,8 +257,8 @@ func TestCreateBatch(t *testing.T) {
 		requireValidationFields(t, err, "notifications")
 
 		_, err = f.svc.CreateBatch(context.Background(), service.BatchInput{Items: batchOf(domain.MaxBatchSize + 1)})
-		verr := requireValidationFields(t, err, "notifications")
-		assert.Equal(t, domain.CodeOutOfRange, verr.Fields[0].Code)
+		fields := requireValidationFields(t, err, "notifications")
+		assert.Equal(t, domain.CodeOutOfRange, fields[0].Code)
 	})
 
 	t.Run("reports every invalid item and stores nothing", func(t *testing.T) {
@@ -283,8 +285,8 @@ func TestCreateBatch(t *testing.T) {
 
 		_, err := f.svc.CreateBatch(context.Background(), service.BatchInput{Items: items})
 
-		verr := requireValidationFields(t, err, "notifications[2].idempotency_key")
-		assert.Equal(t, domain.CodeDuplicate, verr.Fields[0].Code)
+		fields := requireValidationFields(t, err, "notifications[2].idempotency_key")
+		assert.Equal(t, domain.CodeDuplicate, fields[0].Code)
 	})
 
 	t.Run("surfaces item keys that already exist", func(t *testing.T) {

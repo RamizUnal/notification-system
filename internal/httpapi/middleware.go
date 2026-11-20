@@ -1,6 +1,7 @@
 package httpapi
 
 import (
+	"errors"
 	"log/slog"
 	"net/http"
 	"runtime/debug"
@@ -55,7 +56,7 @@ func (a *API) recoverPanics(next http.Handler) http.Handler {
 			if rec == nil {
 				return
 			}
-			if rec == http.ErrAbortHandler {
+			if err, ok := rec.(error); ok && errors.Is(err, http.ErrAbortHandler) {
 				panic(rec) // a deliberate abort: let net/http drop the connection
 			}
 			a.logger.ErrorContext(r.Context(), "panic while serving request",
