@@ -1,0 +1,26 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: var(--hairline) solid var(--rule-strong);
+  background: transparent;
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: background-color var(--t-fast) var(--ease-out), border-color var(--t-fast) var(--ease-out);
+}
+.chip:hover {
+  border-color: var(--ink-3);
+  color: var(--ink);
+}
+.chip[aria-pressed="true"] {
+  background: var(--panel-3);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.chip svg {
+  width: 14px;
+  height: 14px;
+}

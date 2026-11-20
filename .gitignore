@@ -28,3 +28,6 @@ web/*.tsbuildinfo
 
 # Local tool state
 .impeccable/config.local.json
+
+# Design review captures (regenerated on demand)
+.impeccable/review/

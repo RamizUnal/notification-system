@@ -1,6 +1,6 @@
 # One-command setup: docker compose up --build
 #
-#   Console          http://localhost:3000
+#   Console          http://localhost:8070
 #   API + Swagger    http://localhost:8080/docs
 #   Traces (Jaeger)  http://localhost:16686
 #   Mock provider    http://localhost:8090/admin/stats
@@ -124,7 +124,7 @@ services:
       context: ./web
     restart: unless-stopped
     ports:
-      - "3000:80"
+      - "${CONSOLE_PORT:-8070}:80"
     depends_on:
       api:
         condition: service_healthy

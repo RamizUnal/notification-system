@@ -1,0 +1,32 @@
+.notice {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  background: var(--on-air-soft);
+  border: var(--hairline) solid var(--on-air);
+  font-size: var(--fs-sm);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.fields {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+.request {
+  color: var(--ink-2);
+  font-size: var(--fs-xs);
+}

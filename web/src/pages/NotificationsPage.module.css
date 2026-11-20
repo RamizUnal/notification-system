@@ -1,0 +1,94 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.title {
+  font-size: var(--fs-2xl);
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  margin-top: 4px;
+  color: var(--ink-2);
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background: var(--panel);
+  border: var(--hairline) solid var(--rule);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-5);
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.groupLabel {
+  margin-right: var(--s-1);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.select {
+  min-height: 28px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: var(--fs-sm);
+  width: auto;
+}
+
+.search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 220px;
+}
+.search svg {
+  position: absolute;
+  left: 9px;
+  width: 14px;
+  height: 14px;
+  color: var(--ink-3);
+}
+.search input {
+  min-height: 28px;
+  padding: 3px var(--s-2) 3px 30px;
+  font-size: var(--fs-sm);
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+}

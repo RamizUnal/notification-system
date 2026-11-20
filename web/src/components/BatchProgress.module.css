@@ -1,0 +1,53 @@
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.bar {
+  display: flex;
+  height: 14px;
+  background: var(--panel-3);
+  overflow: hidden;
+}
+.bar span {
+  height: 100%;
+}
+.bar [data-status="sent"] {
+  background: var(--clear);
+}
+.bar [data-status="failed"] {
+  background: var(--on-air);
+}
+.bar [data-status="cancelled"] {
+  background: repeating-linear-gradient(-45deg, var(--ink-3) 0 2px, transparent 2px 6px);
+}
+.bar [data-status="processing"] {
+  background: var(--ink);
+}
+.bar [data-status="retrying"] {
+  background: var(--probe);
+}
+.bar [data-status="queued"] {
+  background: var(--ink-3);
+}
+.bar [data-status="scheduled"] {
+  background: var(--rule-strong);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.legend li[data-empty] {
+  opacity: 0.45;
+}

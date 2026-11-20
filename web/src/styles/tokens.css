@@ -1,0 +1,58 @@
+/*
+ * Broadcast gallery tokens.
+ * The room is dim and neutral; colour is reserved for tally state, so an
+ * operator's eye goes straight to whatever is live, probing or broken.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Ground and surfaces: the aubergine-black of the gallery wall. */
+  --ground: #141016;
+  --panel: #1c171f;
+  --panel-2: #241e28;
+  --panel-3: #2e2733;
+  --rule: #352d3a;
+  --rule-strong: #4b4151;
+
+  /* Ink: warm off-white, stepped down for secondary information. */
+  --ink: #efebe6;
+  --ink-2: #c4bbc6;
+  --ink-3: #998f9e;
+  --ink-inverse: #141016;
+
+  /* Tally: the only colours in the room, each one a state. */
+  --on-air: #f04e23; /* sending, processing, failures that need eyes */
+  --on-air-soft: rgba(240, 78, 35, 0.14);
+  --probe: #f2b33d; /* half-open circuit, retrying */
+  --probe-soft: rgba(242, 179, 61, 0.14);
+  --clear: #5fe0be; /* confirmed sent */
+  --clear-soft: rgba(95, 224, 190, 0.12);
+
+  /* Type: Red Hat Text for the interface, Red Hat Mono for measurements. */
+  --font-ui: "Red Hat Text Variable", "Red Hat Text", system-ui, sans-serif;
+  --font-data: "Red Hat Mono Variable", "Red Hat Mono", ui-monospace, monospace;
+  --fs-2xs: 0.6875rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.3125rem;
+  --fs-2xl: 1.625rem;
+
+  /* Space: a 4px rhythm. */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+
+  --hairline: 1px;
+  --tally-width: 2px;
+  --bar-height: 56px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 150ms;
+  --t-base: 220ms;
+}

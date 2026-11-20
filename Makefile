@@ -8,10 +8,10 @@ INTEGRATION := -tags integration -p 1
 ## ---- Run ---------------------------------------------------------------
 
 .PHONY: up
-up: ## Build and start the whole stack (console on http://localhost:3000)
+up: ## Build and start the whole stack (console on http://localhost:8070)
 	docker compose up --build -d --wait
 	@echo
-	@echo "  Console        http://localhost:3000"
+	@echo "  Console        http://localhost:8070"
 	@echo "  API docs       http://localhost:8080/docs"
 	@echo "  Traces         http://localhost:16686"
 	@echo "  Mock provider  http://localhost:8090/admin/stats"

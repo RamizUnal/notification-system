@@ -1,0 +1,12 @@
+.copy {
+  display: inline-flex;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  vertical-align: middle;
+}
+.copy:hover {
+  color: var(--ink);
+}

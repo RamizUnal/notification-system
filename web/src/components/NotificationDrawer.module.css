@@ -1,0 +1,235 @@
+.drawer {
+  position: fixed;
+  top: var(--bar-height);
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  width: min(480px, 100vw);
+  background: var(--panel);
+  border-left: var(--hairline) solid var(--rule-strong);
+  box-shadow: -24px 0 48px rgba(0, 0, 0, 0.35);
+  animation: slide var(--t-base) var(--ease-out);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  min-height: 52px;
+  padding: 0 var(--s-2) 0 var(--s-5);
+  border-bottom: var(--hairline) solid var(--rule);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-lg);
+}
+.title:focus-visible {
+  outline: none;
+}
+
+.close {
+  display: inline-flex;
+  padding: var(--s-2);
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.close:hover {
+  color: var(--ink);
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--s-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.status > span:first-child {
+  font-size: var(--fs-base);
+}
+
+.next {
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.trace {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 var(--s-3);
+  border: var(--hairline) solid var(--rule-strong);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+.trace:hover {
+  border-color: var(--ink-3);
+  background: var(--panel-2);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: var(--fs-md);
+  padding-bottom: var(--s-2);
+  border-bottom: var(--hairline) solid var(--rule);
+}
+
+.count {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  margin: 0;
+}
+.facts .wide {
+  grid-column: 1 / -1;
+}
+.facts dt,
+.list dt {
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+}
+.facts dd {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0 0;
+  word-break: break-all;
+}
+
+.content {
+  padding: var(--s-3) var(--s-4);
+  background: var(--ground);
+  border: var(--hairline) solid var(--rule);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.lastError {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  background: var(--on-air-soft);
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+.lastError > span {
+  margin-top: 5px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+}
+.list > div {
+  display: grid;
+  grid-template-columns: 136px minmax(0, 1fr);
+  gap: var(--s-3);
+  padding: 6px 0;
+  border-bottom: var(--hairline) solid var(--rule);
+  font-size: var(--fs-sm);
+}
+.list dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.none {
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.timeline li {
+  padding: var(--s-2) 0;
+  border-bottom: var(--hairline) solid var(--rule);
+}
+
+.attemptHead {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-sm);
+}
+
+.meta {
+  display: inline-flex;
+  gap: var(--s-3);
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+}
+
+.attemptError {
+  margin: 4px 0 0 40px;
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  .drawer {
+    top: 0;
+    z-index: 45;
+  }
+}

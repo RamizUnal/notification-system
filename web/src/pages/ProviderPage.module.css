@@ -1,0 +1,168 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.title {
+  font-size: var(--fs-2xl);
+}
+
+.sub {
+  margin-top: 4px;
+  color: var(--ink-2);
+  max-width: 72ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: var(--s-3);
+  align-items: start;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  background: var(--panel);
+  border: var(--hairline) solid var(--rule);
+  min-width: 0;
+}
+
+.panelTitle {
+  font-size: var(--fs-base);
+}
+
+.note {
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+  max-width: 72ch;
+}
+
+.behaviour {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--ink);
+}
+
+.latency {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+}
+
+.apply {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rates li {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 170px;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.rateName {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}
+
+.track {
+  position: relative;
+  height: 10px;
+  background: var(--panel-3);
+  border-right: 2px solid var(--ink-2);
+}
+
+.peak,
+.now {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform: scaleX(var(--share, 0));
+  transition: transform var(--t-base) var(--ease-out);
+}
+.peak {
+  background: var(--rule-strong);
+}
+.now {
+  background: var(--ink-2);
+}
+
+.rateNums {
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+  text-align: right;
+}
+
+.totals {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  margin: 0;
+  padding-top: var(--s-3);
+  border-top: var(--hairline) solid var(--rule);
+}
+.totals dt {
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+}
+.totals dd {
+  margin: 2px 0 0;
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.scroller {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+.table th {
+  padding: 8px var(--s-3);
+  border-bottom: var(--hairline) solid var(--rule-strong);
+  color: var(--ink-2);
+  font-size: var(--fs-xs);
+  text-align: left;
+}
+.table td {
+  padding: 7px var(--s-3);
+  border-bottom: var(--hairline) solid var(--rule);
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .totals {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rates li {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+  .rateNums {
+    grid-column: 2;
+    text-align: left;
+  }
+}

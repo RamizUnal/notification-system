@@ -1,0 +1,107 @@
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
+.waiting {
+  display: grid;
+  place-items: center;
+  height: 250px;
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+}
+
+.grid {
+  stroke: var(--rule);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.axis {
+  fill: var(--ink-3);
+  font-family: var(--font-data);
+  font-size: 11px;
+}
+
+.ceiling {
+  stroke: var(--ink-2);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  shape-rendering: crispEdges;
+}
+
+.ceilingLabel {
+  fill: var(--ink-2);
+  font-family: var(--font-data);
+  font-size: 11px;
+}
+
+.series path {
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: opacity var(--t-base) var(--ease-out);
+}
+.series text {
+  font-family: var(--font-data);
+  font-size: 11px;
+  transition: opacity var(--t-base) var(--ease-out);
+}
+.series[data-channel="sms"] path {
+  stroke: var(--ink);
+}
+.series[data-channel="sms"] text {
+  fill: var(--ink);
+}
+.series[data-channel="email"] path {
+  stroke: var(--ink-2);
+  stroke-dasharray: 7 4;
+}
+.series[data-channel="email"] text {
+  fill: var(--ink-2);
+}
+.series[data-channel="push"] path {
+  stroke: var(--ink-2);
+  stroke-dasharray: 1.5 4;
+}
+.series[data-channel="push"] text {
+  fill: var(--ink-2);
+}
+.series[data-dimmed] path,
+.series[data-dimmed] text {
+  opacity: 0.18;
+}
+
+.failure {
+  fill: var(--on-air);
+}
+
+.cursor {
+  stroke: var(--ink-3);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.readout {
+  position: absolute;
+  top: 8px;
+  width: 178px;
+  padding: var(--s-2) var(--s-3);
+  background: var(--panel-2);
+  border: var(--hairline) solid var(--rule-strong);
+  font-size: var(--fs-xs);
+  pointer-events: none;
+}
+.readout p {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+.readout p:first-child {
+  margin-bottom: 4px;
+  color: var(--ink-2);
+}
+.readout p[data-alarm] {
+  color: var(--on-air);
+}

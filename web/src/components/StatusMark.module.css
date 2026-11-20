@@ -1,0 +1,40 @@
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+}
+
+.lamp {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--ink-3);
+}
+
+.mark[data-tone="muted"] {
+  color: var(--ink-2);
+}
+.mark[data-tone="muted"] .lamp {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--ink-3);
+}
+.mark[data-tone="live"] .lamp {
+  background: var(--on-air);
+}
+.mark[data-tone="probe"] .lamp {
+  background: var(--probe);
+}
+.mark[data-tone="clear"] .lamp {
+  background: var(--clear);
+}
+.mark[data-tone="alarm"] {
+  color: var(--on-air);
+  font-weight: 600;
+}
+.mark[data-tone="alarm"] .lamp {
+  background: linear-gradient(135deg, transparent 42%, var(--on-air) 42%, var(--on-air) 58%, transparent 58%);
+  box-shadow: inset 0 0 0 1px var(--on-air);
+}

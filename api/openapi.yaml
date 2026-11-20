@@ -37,7 +37,7 @@ info:
 servers:
   - url: http://localhost:8080
     description: Docker Compose (API directly)
-  - url: http://localhost:3000
+  - url: http://localhost:8070
     description: Docker Compose (through the console's proxy)
 tags:
   - name: Notifications

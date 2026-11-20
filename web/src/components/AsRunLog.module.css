@@ -1,0 +1,98 @@
+.log {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: var(--panel);
+  border: var(--hairline) solid var(--rule);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-2) var(--s-2) var(--s-4);
+  border-bottom: var(--hairline) solid var(--rule);
+}
+
+.title {
+  font-size: var(--fs-md);
+}
+.scope {
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.empty {
+  padding: var(--s-4);
+}
+
+.rows {
+  flex: 1;
+  min-height: 0;
+  max-height: 318px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 96px 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  width: 100%;
+  min-height: 30px;
+  padding: 0 var(--s-4);
+  border: 0;
+  border-bottom: var(--hairline) solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.row:hover {
+  background: var(--panel-2);
+}
+li:first-child .row {
+  animation: arrive var(--t-base) var(--ease-out);
+}
+
+.time {
+  color: var(--ink-3);
+  font-size: var(--fs-xs);
+}
+
+.channel {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.status {
+  min-width: 0;
+}
+
+.id {
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+  text-align: right;
+}
+.attempt {
+  color: var(--probe);
+}
+
+.batch {
+  grid-column: span 2;
+  font-weight: 600;
+}
+
+@keyframes arrive {
+  from {
+    background: var(--panel-3);
+  }
+}
