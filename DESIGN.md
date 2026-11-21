@@ -4,6 +4,7 @@ description: A broadcast-gallery operator console for a live notification delive
 colors:
   ground: "#141016"
   console-black: "#100c11"
+  console-black-hover: "#0c090d"
   mullion: "#0b080c"
   panel: "#1c171f"
   panel-2: "#241e28"
@@ -156,6 +157,8 @@ components:
     typography: "{typography.strip}"
     padding: "0 16px"
     height: "40px"
+  monitor-strip-hover:
+    backgroundColor: "{colors.console-black-hover}"
   monitor-strip-focused:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.ink-inverse}"
@@ -240,6 +243,7 @@ A dim, warm-neutral room in which three saturated tally hues are the only colour
 ### Neutral
 - **Gallery Black** (ground): the page wall, the scrollbar track, recessed message bodies in the drawer.
 - **Console Black** (console-black): the top bar and the under-monitor strips, one step darker than the wall so the strips read as one band.
+- **Console Black Hover** (console-black-hover): an under-monitor strip under the pointer, a step darker again, before a click focuses that channel.
 - **Mullion** (mullion): the 2px seam between monitors in the multiviewer wall.
 - **Monitor** (panel): monitor tiles, the plot and log panels, the drawer.
 - **Raised** (panel-2): inputs, secondary buttons, toasts, menus, readouts and hover rows.

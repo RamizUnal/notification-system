@@ -38,7 +38,7 @@
   color: var(--ink-inverse);
 }
 .primary:hover:not(:disabled) {
-  background: #ff6a43;
+  background: var(--on-air-bright);
 }
 
 .secondary {

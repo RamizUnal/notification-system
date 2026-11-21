@@ -20,7 +20,7 @@
   gap: var(--s-6);
   height: var(--bar-height);
   padding: 0 var(--s-5);
-  background: #100c11;
+  background: var(--console-black);
   border-bottom: var(--hairline) solid var(--rule);
 }
 

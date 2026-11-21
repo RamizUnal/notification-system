@@ -20,7 +20,7 @@
 .axis {
   fill: var(--ink-3);
   font-family: var(--font-data);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
 }
 
 .ceiling {
@@ -33,7 +33,7 @@
 .ceilingLabel {
   fill: var(--ink-2);
   font-family: var(--font-data);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
 }
 
 /* The live edge: where the settled series hands over to the meters' reading. */
@@ -46,7 +46,7 @@
 .nowLabel {
   fill: var(--ink-2);
   font-family: var(--font-data);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
 }
 
 .series path {
@@ -58,7 +58,7 @@
 }
 .series text {
   font-family: var(--font-data);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
   transition: opacity var(--t-base) var(--ease-out);
 }
 .series[data-channel="sms"] path {

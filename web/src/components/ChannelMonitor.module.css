@@ -170,7 +170,7 @@
   padding: 0 var(--s-4);
   border: 0;
   border-top: var(--hairline) solid var(--rule);
-  background: #100c11;
+  background: var(--console-black);
   color: var(--ink);
   font-family: var(--font-data);
   text-transform: uppercase;
@@ -179,7 +179,7 @@
   cursor: pointer;
 }
 .umd:hover {
-  background: #0c090d;
+  background: var(--console-black-hover);
 }
 .monitor[data-focused] .umd {
   background: var(--ink);

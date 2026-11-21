@@ -14,6 +14,12 @@
   --rule: #352d3a;
   --rule-strong: #4b4151;
 
+  /* Console furniture, darker than the wall: the top bar, the strip under
+     each monitor, and the seams (mullions) between monitors. */
+  --console-black: #100c11;
+  --console-black-hover: #0c090d;
+  --mullion: #0b080c;
+
   /* Ink: warm off-white, stepped down for secondary information. */
   --ink: #efebe6;
   --ink-2: #c4bbc6;
@@ -22,11 +28,11 @@
 
   /* Tally: the only colours in the room, each one a state. */
   --on-air: #f04e23; /* sending, processing, failures that need eyes */
+  --on-air-bright: #ff6a43; /* hover of the one action that puts traffic on air */
   --on-air-soft: rgba(240, 78, 35, 0.14);
   --probe: #f2b33d; /* half-open circuit, retrying */
   --probe-soft: rgba(242, 179, 61, 0.14);
   --clear: #5fe0be; /* confirmed sent */
-  --clear-soft: rgba(95, 224, 190, 0.12);
 
   /* Type: Red Hat Text for the interface, Red Hat Mono for measurements. */
   --font-ui: "Red Hat Text Variable", "Red Hat Text", system-ui, sans-serif;
@@ -47,7 +53,15 @@
   --s-4: 16px;
   --s-5: 24px;
   --s-6: 32px;
-  --s-7: 48px;
+
+  /*
+   * Breakpoints. Media queries cannot read custom properties, so each module
+   * writes its width out; these are the only widths in use, named as in
+   * .impeccable/design.json:
+   *   1280 bar-subtitle   1200 lower-stack      1100 bar-wrap
+   *   1024 wall-single     960 forms-stack       900 table-trim
+   *    760 templates-stack 640 phone             560 compact-monitor
+   */
 
   --hairline: 1px;
   --tally-width: 2px;

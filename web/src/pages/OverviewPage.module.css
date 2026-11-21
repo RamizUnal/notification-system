@@ -44,7 +44,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2px;
   padding: 2px;
-  background: #0b080c;
+  background: var(--mullion);
 }
 
 .lower {
