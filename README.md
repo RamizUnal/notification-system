@@ -1,5 +1,7 @@
 # Notification System
 
+[![CI](https://github.com/RamizUnal/notification-system/actions/workflows/ci.yml/badge.svg)](https://github.com/RamizUnal/notification-system/actions/workflows/ci.yml)
+
 An event-driven notification service for SMS, email and push, written in Go.
 
 The API accepts notifications one at a time or in batches of up to 1,000 and stores them in
