@@ -350,7 +350,8 @@ make lint             # golangci-lint with a curated set of linters
 | Console (29) | Formatting, SMS segment counting, the tally logic, the event stream's batching, rates and resync, the level meter's accessible values, and the compose form showing server-side validation errors on the right fields. | `web/src/**/*.test.ts(x)` |
 
 All 217 Go test cases (counting subtests) and the 29 console tests pass. The whole Go suite
-runs in about 30 seconds. More on the approach is in [docs/testing.md](docs/testing.md).
+runs in about 30 seconds. Statement coverage across `internal/` is 78.9% (`make cover`),
+and 87–100% in the domain, the use cases, the delivery engine and the rate limiter. More on the approach is in [docs/testing.md](docs/testing.md).
 Highlights:
 
 - **Virtual time.** Timing-sensitive code (rate limiting, dispatching, the engine's

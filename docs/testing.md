@@ -184,6 +184,29 @@ The console uses Vitest with Testing Library in jsdom (`web/src/**/*.test.ts(x)`
   The console's TypeScript types are generated from the same spec, and CI fails if the
   committed types differ from a fresh generation.
 
+## Coverage
+
+`make cover` measures statement coverage across `internal/` with every test level
+included. At the time of writing it is **78.9%** overall:
+
+| Package | Coverage |
+|---|---|
+| `ratelimit`, `realtime` | 100% |
+| `domain` | 95% |
+| `delivery`, `provider/webhook` | 90% |
+| `service` | 87% |
+| `storage/postgres` | 84% |
+| `httpapi` | 80% |
+
+The gaps are deliberate:
+
+- **`app` (7%):** process wiring, meaning signal handling and the server lifecycle.
+- **`observability` (22%):** tracing and log setup.
+- **`observability/metrics` (0%):** the Prometheus collectors.
+
+All three run whenever the real binaries run, which CI's Compose smoke test does on every
+change. Unit tests of that wiring would mostly restate it.
+
 ## Continuous integration
 
 [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) runs four jobs on every push and
