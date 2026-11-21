@@ -15,35 +15,57 @@ interface ThroughputPlotProps {
   metrics: Metrics;
   ceiling: number;
   focus: Channel | null;
+  /**
+   * Deliveries in the last second per channel, measured from the event
+   * stream, or null while the stream is down. With it the plot runs to "now"
+   * and ends on the same numbers the channel meters show.
+   */
+  live: Record<Channel, number> | null;
 }
+
+const NO_RATES: Record<Channel, number> = { sms: 0, email: 0, push: 0 };
 
 /**
  * Deliveries per second per channel across the window. Channels are told
  * apart by stroke pattern and direct labels, not colour: colour stays
  * reserved for state, here the failure band and nothing else.
+ *
+ * The line is drawn from settled buckets of the metrics snapshot, which trail
+ * real time by a few seconds; its last segment runs from the newest settled
+ * bucket to the live reading at "now", so the plot never contradicts the meters.
  */
-export function ThroughputPlot({ metrics, ceiling, focus }: ThroughputPlotProps) {
+export function ThroughputPlot({ metrics, ceiling, focus, live }: ThroughputPlotProps) {
   const [ref, width] = useElementWidth<HTMLDivElement>();
   const [hover, setHover] = useState<number | null>(null);
   const buckets = useMemo(() => toBuckets(metrics), [metrics]);
 
+  const bucketMs = metrics.bucket_seconds * 1000;
+  const first = buckets[0]?.at ?? 0;
+  const lastAt = buckets.at(-1)?.at ?? first;
+  const end = live ? Math.max(lastAt + bucketMs, new Date(metrics.generated_at).getTime()) : lastAt;
+  const endRates = live ?? buckets.at(-1)?.rates ?? NO_RATES;
+
   const plotW = width - PAD.left - PAD.right;
   const plotH = HEIGHT - PAD.top - PAD.bottom;
-  const maxRate = Math.max(ceiling * 1.15, ...buckets.flatMap((b) => CHANNELS.map((c) => b.rates[c] * 1.1)));
+  const maxRate = Math.max(
+    ceiling * 1.15,
+    ...CHANNELS.map((c) => endRates[c] * 1.1),
+    ...buckets.flatMap((b) => CHANNELS.map((c) => b.rates[c] * 1.1)),
+  );
   const maxFailed = Math.max(1, ...buckets.map((b) => b.failed));
-  const first = buckets[0]?.at ?? 0;
-  const span = Math.max(1, (buckets.at(-1)?.at ?? 1) - first);
+  const span = Math.max(1, end - first);
 
   const x = (t: number) => PAD.left + ((t - first) / span) * plotW;
   const y = (rate: number) => PAD.top + plotH - (rate / maxRate) * plotH;
   const baseY = PAD.top + plotH;
   const bandTop = baseY + 24;
-  const step = buckets.length > 1 ? plotW / (buckets.length - 1) : plotW;
+  const step = (bucketMs / span) * plotW;
 
   const ticks = useMemo(() => timeTicks(buckets, metrics.window_seconds), [buckets, metrics.window_seconds]);
-  const last = buckets.at(-1);
+  // Leave room for the "now" label at the right edge.
+  const shownTicks = live ? ticks.filter((t) => x(end) - x(t) > 44) : ticks;
   const labelY = spreadLabels(
-    CHANNELS.map((ch) => [ch, y(last?.rates[ch] ?? 0)] as const),
+    CHANNELS.map((ch) => [ch, y(endRates[ch])] as const),
     13,
     PAD.top + 6,
     baseY,
@@ -64,7 +86,7 @@ export function ThroughputPlot({ metrics, ceiling, focus }: ThroughputPlotProps)
         width={width}
         height={HEIGHT}
         role="img"
-        aria-label={`Deliveries per second per channel over the last ${Math.round(metrics.window_seconds / 60)} minutes`}
+        aria-label={`Deliveries per second per channel over the last ${Math.round(metrics.window_seconds / 60)} minutes${live ? ", ending on the live rate" : ""}`}
         onMouseLeave={() => setHover(null)}
         onMouseMove={(e) => {
           const box = e.currentTarget.getBoundingClientRect();
@@ -89,22 +111,32 @@ export function ThroughputPlot({ metrics, ceiling, focus }: ThroughputPlotProps)
           ceiling {ceiling}/s per channel
         </text>
 
-        {ticks.map((t) => (
+        {shownTicks.map((t) => (
           <text key={t} className={styles.axis} x={x(t)} y={baseY + 16} textAnchor="middle">
             {timecode(t, false).slice(0, 5)}
           </text>
         ))}
 
+        {live && (
+          <g>
+            <line className={styles.now} x1={x(end)} x2={x(end)} y1={PAD.top} y2={baseY} />
+            <text className={styles.nowLabel} x={x(end)} y={baseY + 16} textAnchor="middle">
+              <title>Live: deliveries in the last second, as the channel meters show</title>
+              now
+            </text>
+          </g>
+        )}
+
         {CHANNELS.map((ch) => {
-          const d = buckets.map((b, i) => `${i === 0 ? "M" : "L"}${x(b.at).toFixed(1)},${y(b.rates[ch]).toFixed(1)}`).join("");
+          const points = buckets.map((b) => [x(b.at), y(b.rates[ch])] as const);
+          if (live) points.push([x(end), y(live[ch])]);
+          const d = points.map(([px, py], i) => `${i === 0 ? "M" : "L"}${px.toFixed(1)},${py.toFixed(1)}`).join("");
           return (
             <g key={ch} className={styles.series} data-channel={ch} data-dimmed={(focus !== null && focus !== ch) || undefined}>
               <path d={d} />
-              {last && (
-                <text x={PAD.left + plotW + 8} y={(labelY[ch] ?? 0) + 4}>
-                  {channelInfo[ch].label} {formatRate(last.rates[ch])}
-                </text>
-              )}
+              <text x={PAD.left + plotW + 8} y={(labelY[ch] ?? 0) + 4}>
+                {channelInfo[ch].label} {formatRate(endRates[ch])}
+              </text>
             </g>
           );
         })}

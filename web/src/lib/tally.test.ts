@@ -26,11 +26,11 @@ describe("tallyFor", () => {
     const t = tallyFor(metrics({ circuit: "open" }), { rate: 50, peak: 90 }, workers);
     expect(t.state).toBe("open");
     expect(t.label).toBe("Circuit open");
-    expect(t.detail).toMatch(/next probe in 1[12]s/);
+    expect(t.detail).toMatch(/^Next probe in 1[12]s$/);
   });
 
   it("says a probe is due once its time has passed", () => {
-    expect(tallyFor(metrics({ circuit: "open" }), idle, []).detail).toBe("Provider failing; probe due");
+    expect(tallyFor(metrics({ circuit: "open" }), idle, []).detail).toBe("Probe due");
   });
 
   it("flags a channel without workers", () => {

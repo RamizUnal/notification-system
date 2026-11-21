@@ -20,10 +20,9 @@ export function tallyFor(m: ChannelMetrics, live: LiveRate, workers: Worker[]): 
     return {
       state: "open",
       label: "Circuit open",
+      // Short enough that the countdown, the part that changes, is never cut off.
       detail:
-        retryAt && new Date(retryAt).getTime() > Date.now()
-          ? `Provider failing; next probe ${relativeTime(retryAt)}`
-          : "Provider failing; probe due",
+        retryAt && new Date(retryAt).getTime() > Date.now() ? `Next probe ${relativeTime(retryAt)}` : "Probe due",
     };
   }
   if (m.circuit === "half_open") return { state: "probing", label: "Probing", detail: "One test send to the provider" };

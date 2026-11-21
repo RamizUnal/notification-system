@@ -36,6 +36,19 @@
   font-size: 11px;
 }
 
+/* The live edge: where the settled series hands over to the meters' reading. */
+.now {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.nowLabel {
+  fill: var(--ink-2);
+  font-family: var(--font-data);
+  font-size: 11px;
+}
+
 .series path {
   fill: none;
   stroke-width: 1.75;

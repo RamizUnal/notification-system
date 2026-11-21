@@ -25,4 +25,24 @@ describe("toBuckets", () => {
     expect(buckets[0]?.failed).toBe(3);
     expect(buckets[1]?.rates.sms).toBe(96);
   });
+
+  it("holds back a bucket that closed moments before the snapshot", () => {
+    const m = {
+      generated_at: "2026-11-21T12:00:02.200Z",
+      window_seconds: 60,
+      bucket_seconds: 1,
+      channels: [],
+      status_counts: {},
+      workers: [],
+      throughput: [
+        { at: "2026-11-21T12:00:00Z", channel: "sms", succeeded: 100, failed: 0 },
+        // Closed 200 ms before the snapshot: sends from its last moments may
+        // not be written yet, so it is not trusted.
+        { at: "2026-11-21T12:00:01Z", channel: "sms", succeeded: 61, failed: 0 },
+        { at: "2026-11-21T12:00:02Z", channel: "sms", succeeded: 18, failed: 0 },
+      ],
+    } satisfies Metrics;
+
+    expect(toBuckets(m).map((b) => b.rates.sms)).toEqual([100]);
+  });
 });

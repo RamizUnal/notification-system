@@ -33,8 +33,9 @@ export function OverviewPage() {
 
   const metrics = useMetrics(windowValue);
   const live = useLiveRates();
-  const { log } = useStream();
+  const { log, status } = useStream();
   const m = metrics.data;
+  const liveRates = status === "live" ? { sms: live.sms.rate, email: live.email.rate, push: live.push.rate } : null;
   const ceiling = m?.channels[0]?.rate_limit_per_second ?? 100;
 
   const update = (key: string, value: string | null) => {
@@ -102,7 +103,11 @@ export function OverviewPage() {
             </ul>
           </header>
           <div className={styles.plot}>
-            {m ? <ThroughputPlot metrics={m} ceiling={ceiling} focus={focus} /> : <Skeleton height={250} />}
+            {m ? (
+              <ThroughputPlot metrics={m} ceiling={ceiling} focus={focus} live={liveRates} />
+            ) : (
+              <Skeleton height={250} />
+            )}
           </div>
         </section>
 
