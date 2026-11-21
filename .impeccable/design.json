@@ -1,0 +1,541 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T00:00:00Z",
+  "title": "Design System: Dispatch",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Gallery Black",
+        "canonical": "#141016",
+        "tonalRamp": [
+          "#0d090f",
+          "#28232a",
+          "#454047",
+          "#645f67",
+          "#858088",
+          "#a8a3ab",
+          "#ccc7cf",
+          "#f2ecf5"
+        ]
+      },
+      "console-black": {
+        "role": "neutral",
+        "displayName": "Console Black",
+        "canonical": "#100c11",
+        "tonalRamp": [
+          "#0d0a0e",
+          "#282329",
+          "#454046",
+          "#645f66",
+          "#868087",
+          "#a8a3aa",
+          "#cdc7ce",
+          "#f2ecf4"
+        ]
+      },
+      "mullion": {
+        "role": "neutral",
+        "displayName": "Mullion",
+        "canonical": "#0b080c",
+        "tonalRamp": [
+          "#0d0a0e",
+          "#272428",
+          "#444046",
+          "#645f65",
+          "#858086",
+          "#a8a3a9",
+          "#ccc7ce",
+          "#f1ecf3"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Monitor",
+        "canonical": "#1c171f",
+        "tonalRamp": [
+          "#0e0910",
+          "#28232b",
+          "#453f49",
+          "#655f68",
+          "#867f8a",
+          "#a9a2ad",
+          "#cdc6d1",
+          "#f2ebf7"
+        ]
+      },
+      "panel-2": {
+        "role": "neutral",
+        "displayName": "Raised",
+        "canonical": "#241e28",
+        "tonalRamp": [
+          "#0e0911",
+          "#28222c",
+          "#463f4a",
+          "#655e6a",
+          "#867f8c",
+          "#a9a2af",
+          "#cec6d3",
+          "#f3ebf9"
+        ]
+      },
+      "panel-3": {
+        "role": "neutral",
+        "displayName": "Well",
+        "canonical": "#2e2733",
+        "tonalRamp": [
+          "#0e0812",
+          "#29222e",
+          "#463f4b",
+          "#665e6b",
+          "#877f8d",
+          "#aaa1b0",
+          "#cec5d5",
+          "#f4eafb"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#352d3a",
+        "tonalRamp": [
+          "#0f0813",
+          "#29222e",
+          "#473e4c",
+          "#665d6c",
+          "#887e8e",
+          "#aaa1b1",
+          "#cfc5d5",
+          "#f4eafb"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#4b4151",
+        "tonalRamp": [
+          "#0f0714",
+          "#2a212f",
+          "#473e4d",
+          "#675d6e",
+          "#897d8f",
+          "#aca0b3",
+          "#d0c4d7",
+          "#f5e9fd"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#efebe6",
+        "tonalRamp": [
+          "#0d0b08",
+          "#272521",
+          "#45413d",
+          "#64615c",
+          "#85827d",
+          "#a8a4a0",
+          "#ccc8c4",
+          "#f2eee9"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "#c4bbc6",
+        "tonalRamp": [
+          "#0f0910",
+          "#29222b",
+          "#463f48",
+          "#665e68",
+          "#877f89",
+          "#aaa2ac",
+          "#cfc6d1",
+          "#f4ebf6"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "canonical": "#998f9e",
+        "tonalRamp": [
+          "#0f0812",
+          "#2a222d",
+          "#473e4b",
+          "#675d6b",
+          "#887e8d",
+          "#aba1b0",
+          "#cfc5d5",
+          "#f5eafa"
+        ]
+      },
+      "ink-inverse": {
+        "role": "neutral",
+        "displayName": "Ink Inverse",
+        "canonical": "#141016",
+        "tonalRamp": [
+          "#0d090f",
+          "#28232a",
+          "#454047",
+          "#645f67",
+          "#858088",
+          "#a8a3ab",
+          "#ccc7cf",
+          "#f2ecf5"
+        ]
+      },
+      "on-air": {
+        "role": "primary",
+        "displayName": "Tally Orange-Red",
+        "canonical": "#f04e23",
+        "tonalRamp": [
+          "#210000",
+          "#520000",
+          "#890000",
+          "#b90400",
+          "#e24010",
+          "#ff6840",
+          "#ff9b77",
+          "#ffd1b8"
+        ]
+      },
+      "on-air-bright": {
+        "role": "primary",
+        "displayName": "Hot Tally",
+        "canonical": "#ff6a43",
+        "tonalRamp": [
+          "#200000",
+          "#4f0000",
+          "#840000",
+          "#b41d00",
+          "#dc4920",
+          "#ff7049",
+          "#ff9f7d",
+          "#ffd4bb"
+        ]
+      },
+      "on-air-soft": {
+        "role": "primary",
+        "displayName": "Tally Wash",
+        "canonical": "rgba(240, 78, 35, 0.14)",
+        "tonalRamp": [
+          "#210000",
+          "#520000",
+          "#890000",
+          "#b90400",
+          "#e24010",
+          "#ff6840",
+          "#ff9b77",
+          "#ffd1b8"
+        ]
+      },
+      "probe": {
+        "role": "secondary",
+        "displayName": "Probe Amber",
+        "canonical": "#f2b33d",
+        "tonalRamp": [
+          "#160700",
+          "#3c1d00",
+          "#653500",
+          "#8c5300",
+          "#b17500",
+          "#d6980f",
+          "#f5bf64",
+          "#ffe9ad"
+        ]
+      },
+      "probe-soft": {
+        "role": "secondary",
+        "displayName": "Probe Wash",
+        "canonical": "rgba(242, 179, 61, 0.14)",
+        "tonalRamp": [
+          "#160700",
+          "#3c1d00",
+          "#653500",
+          "#8c5300",
+          "#b17500",
+          "#d6980f",
+          "#f5bf64",
+          "#ffe9ad"
+        ]
+      },
+      "clear": {
+        "role": "tertiary",
+        "displayName": "Confirm Mint",
+        "canonical": "#5fe0be",
+        "tonalRamp": [
+          "#001109",
+          "#003021",
+          "#00533c",
+          "#00775a",
+          "#009a7b",
+          "#35be9e",
+          "#79e0c3",
+          "#bcffea"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles only."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Drawer title."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base interface size; panel and section headings at 600."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels, monitor terms, notices, small buttons."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Secondary lines, dt terms, hints, legends."
+      },
+      "readout": {
+        "displayName": "Readout",
+        "purpose": "Big live figures inside a monitor."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Timecodes, IDs, counts, latencies; tabular figures."
+      },
+      "strip": {
+        "displayName": "Strip",
+        "purpose": "Under-monitor strip and stream tally only; uppercase."
+      },
+      "scale-mark": {
+        "displayName": "Scale Mark",
+        "purpose": "Meter numerals and plot axes (11px)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "drawer-edge",
+        "value": "-24px 0 48px rgba(0, 0, 0, 0.35)",
+        "purpose": "Notification drawer floating over the list."
+      },
+      {
+        "name": "toast",
+        "value": "0 12px 32px rgba(0, 0, 0, 0.45)",
+        "purpose": "Toasts."
+      },
+      {
+        "name": "menu",
+        "value": "0 16px 40px rgba(0, 0, 0, 0.5)",
+        "purpose": "Burst menu."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single easing for every transition and entrance."
+      },
+      {
+        "name": "t-fast",
+        "value": "150ms",
+        "purpose": "Control feedback: hover, press, tabs, chips, inputs; burst menu drop."
+      },
+      {
+        "name": "t-base",
+        "value": "220ms",
+        "purpose": "State changes: tally outlines, dimming, queue tracks, as-run arrival, drawer slide, toast entry."
+      },
+      {
+        "name": "meter-step",
+        "value": "90ms linear",
+        "purpose": "Level meter segment colour changes."
+      },
+      {
+        "name": "skeleton-sweep",
+        "value": "1.4s linear infinite",
+        "purpose": "Loading skeletons; the only loop."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations 0.01ms, one iteration",
+        "purpose": "prefers-reduced-motion: reduce, applied globally."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "bar-subtitle",
+        "value": "1280px"
+      },
+      {
+        "name": "lower-stack",
+        "value": "1200px"
+      },
+      {
+        "name": "bar-wrap",
+        "value": "1100px"
+      },
+      {
+        "name": "wall-single",
+        "value": "1024px"
+      },
+      {
+        "name": "forms-stack",
+        "value": "960px"
+      },
+      {
+        "name": "table-trim",
+        "value": "900px"
+      },
+      {
+        "name": "templates-stack",
+        "value": "760px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      },
+      {
+        "name": "compact-monitor",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (on-air action)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "On-air fill reserved for the action that puts traffic on air (Send burst, Send).",
+      "html": "<button class=\"ds-btn ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m22 2-7 20-4-9-9-4Z\"/><path d=\"M22 2 11 13\"/></svg>Send burst</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border: 1px solid transparent; border-radius: 0; font-family: var(--font-ui); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em; cursor: pointer; transition: background-color 150ms cubic-bezier(0.16,1,0.3,1), border-color 150ms cubic-bezier(0.16,1,0.3,1), color 150ms cubic-bezier(0.16,1,0.3,1); } .ds-btn:focus-visible { outline: 2px solid var(--ink, #efebe6); outline-offset: 2px; } .ds-btn-primary { background: var(--on-air, #f04e23); color: var(--ink-inverse, #141016); } .ds-btn-primary:hover { background: #ff6a43; }"
+    },
+    {
+      "name": "Secondary, Ghost and Danger Buttons",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Neutral working actions; danger is an on-air outline that confirms in place.",
+      "html": "<div style=\"display:flex;gap:8px\"><button class=\"ds-btn2 ds-btn2-secondary\">Load more</button><button class=\"ds-btn2 ds-btn2-ghost\">Keep</button><button class=\"ds-btn2 ds-btn2-danger\">Cancel notification</button></div>",
+      "css": ".ds-btn2 { display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border: 1px solid transparent; border-radius: 0; font-family: var(--font-ui); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em; cursor: pointer; transition: background-color 150ms cubic-bezier(0.16,1,0.3,1), border-color 150ms cubic-bezier(0.16,1,0.3,1), color 150ms cubic-bezier(0.16,1,0.3,1); } .ds-btn2:focus-visible { outline: 2px solid var(--ink, #efebe6); outline-offset: 2px; } .ds-btn2-secondary { background: var(--panel-2, #241e28); border-color: var(--rule-strong, #4b4151); color: var(--ink, #efebe6); } .ds-btn2-secondary:hover { background: var(--panel-3, #2e2733); border-color: var(--ink-3, #998f9e); } .ds-btn2-ghost { background: transparent; color: var(--ink-2, #c4bbc6); } .ds-btn2-ghost:hover { background: var(--panel-2, #241e28); color: var(--ink, #efebe6); } .ds-btn2-danger { background: transparent; border-color: var(--on-air, #f04e23); color: var(--on-air, #f04e23); } .ds-btn2-danger:hover { background: var(--on-air-soft, rgba(240,78,35,0.14)); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Raised square field; focus is an ink border plus a 1px ink ring.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Recipient</span><input class=\"ds-input\" placeholder=\"+905551234567\"><span class=\"ds-field-hint\">E.164 format</span></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: var(--font-ui); } .ds-field-label { font-size: 0.8125rem; font-weight: 600; color: var(--ink, #efebe6); } .ds-field-hint { font-size: 0.75rem; color: var(--ink-2, #c4bbc6); } .ds-input { min-height: 36px; padding: 7px 12px; background: var(--panel-2, #241e28); border: 1px solid var(--rule-strong, #4b4151); border-radius: 0; color: var(--ink, #efebe6); font: inherit; font-size: 0.875rem; caret-color: var(--on-air, #f04e23); transition: border-color 150ms cubic-bezier(0.16,1,0.3,1); } .ds-input::placeholder { color: var(--ink-3, #998f9e); } .ds-input:hover { border-color: var(--ink-3, #998f9e); } .ds-input:focus-visible { outline: none; border-color: var(--ink, #efebe6); box-shadow: 0 0 0 1px var(--ink, #efebe6); }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "nav",
+      "refersTo": "segment",
+      "description": "Butted hairline segments; the checked one inverts to ink. Time window and provider switch.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button class=\"ds-seg-item\" role=\"radio\" aria-checked=\"true\">Stable</button><button class=\"ds-seg-item\" role=\"radio\" aria-checked=\"false\">Flaky</button><button class=\"ds-seg-item\" role=\"radio\" aria-checked=\"false\">Outage</button></div>",
+      "css": ".ds-seg { display: inline-flex; border: 1px solid var(--rule-strong, #4b4151); font-family: var(--font-ui); } .ds-seg-item { height: 32px; padding: 0 12px; border: 0; background: transparent; color: var(--ink-2, #c4bbc6); font: inherit; font-size: 0.8125rem; font-weight: 500; cursor: pointer; transition: background-color 150ms cubic-bezier(0.16,1,0.3,1), color 150ms cubic-bezier(0.16,1,0.3,1); } .ds-seg-item + .ds-seg-item { border-left: 1px solid var(--rule-strong, #4b4151); } .ds-seg-item:hover:not([aria-checked=\"true\"]) { background: var(--panel-2, #241e28); color: var(--ink, #efebe6); } .ds-seg-item[aria-checked=\"true\"] { background: var(--ink, #efebe6); color: var(--ink-inverse, #141016); font-weight: 600; } .ds-seg-item:focus-visible { outline: 2px solid var(--ink, #efebe6); outline-offset: 2px; }"
+    },
+    {
+      "name": "Tally Lamps (status marks)",
+      "kind": "chip",
+      "refersTo": "stream-tally",
+      "description": "Square lamp plus a word; colour only for live, probe, clear and alarm.",
+      "html": "<div class=\"ds-marks\"><span class=\"ds-mark\" data-tone=\"neutral\"><i></i>Queued</span><span class=\"ds-mark\" data-tone=\"live\"><i></i>Processing</span><span class=\"ds-mark\" data-tone=\"probe\"><i></i>Retrying</span><span class=\"ds-mark\" data-tone=\"clear\"><i></i>Sent</span><span class=\"ds-mark\" data-tone=\"alarm\"><i></i>Failed</span><span class=\"ds-mark\" data-tone=\"muted\"><i></i>Cancelled</span><span class=\"ds-tally\"><i></i>Live</span></div>",
+      "css": ".ds-marks { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; font-family: var(--font-ui); } .ds-mark { display: inline-flex; align-items: center; gap: 7px; font-size: 0.8125rem; color: var(--ink, #efebe6); } .ds-mark i { width: 8px; height: 8px; background: var(--ink-3, #998f9e); } .ds-mark[data-tone=\"muted\"] { color: var(--ink-2, #c4bbc6); } .ds-mark[data-tone=\"muted\"] i { background: transparent; box-shadow: inset 0 0 0 1px var(--ink-3, #998f9e); } .ds-mark[data-tone=\"live\"] i { background: var(--on-air, #f04e23); } .ds-mark[data-tone=\"probe\"] i { background: var(--probe, #f2b33d); } .ds-mark[data-tone=\"clear\"] i { background: var(--clear, #5fe0be); } .ds-mark[data-tone=\"alarm\"] { color: var(--on-air, #f04e23); font-weight: 600; } .ds-mark[data-tone=\"alarm\"] i { background: linear-gradient(135deg, transparent 42%, var(--on-air, #f04e23) 42%, var(--on-air, #f04e23) 58%, transparent 58%); box-shadow: inset 0 0 0 1px var(--on-air, #f04e23); } .ds-tally { display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; border: 1px solid var(--rule-strong, #4b4151); font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink, #efebe6); } .ds-tally i { width: 8px; height: 8px; background: var(--on-air, #f04e23); }"
+    },
+    {
+      "name": "Channel Monitor with Level Meter and Strip",
+      "kind": "custom",
+      "refersTo": "channel-monitor",
+      "description": "Multiviewer tile: tally outline frame, segmented meter against the ceiling with ticks, under-monitor strip.",
+      "html": "<div class=\"ds-wall\"><article class=\"ds-mon\" data-tally=\"on-air\"><div class=\"ds-mon-screen\"><div class=\"ds-meter\"><span class=\"ds-meter-cap\">100</span><div class=\"ds-meter-col\"><span class=\"ds-ticks\"></span><b data-lit data-hot></b><b data-lit data-hot></b><b data-peak></b><b data-lit></b><b data-lit></b><b data-lit></b><b data-lit></b><b data-lit></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><span class=\"ds-meter-floor\">0</span><span class=\"ds-rate\">96<small>/s</small></span></div><div class=\"ds-read\"><div class=\"ds-row\"><span>Waiting</span><span class=\"ds-big\">557</span></div><div class=\"ds-cap\">551 due · 7 retrying · 12 in flight</div><div class=\"ds-row ds-stat\"><span>Failed attempts</span><span class=\"ds-alarm\">57</span></div></div></div><button class=\"ds-umd\"><span>SMS</span><span class=\"ds-umd-state\"><i></i><strong>On air</strong> <em>96/s now</em></span></button></article><article class=\"ds-mon\" data-tally=\"open\"><div class=\"ds-mon-screen\"><div class=\"ds-read\"><div class=\"ds-row\"><span>Waiting</span><span class=\"ds-big\">1,000</span></div></div></div><button class=\"ds-umd\"><span>Email</span><span class=\"ds-umd-state\"><i></i><strong>Circuit open</strong> <em>Next probe in 10s</em></span></button></article></div>",
+      "css": ".ds-wall { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 2px; background: #0b080c; font-family: var(--font-ui); color: var(--ink, #efebe6); } .ds-mon { display: flex; flex-direction: column; background: var(--panel, #1c171f); outline: 2px solid transparent; outline-offset: -2px; transition: outline-color 220ms cubic-bezier(0.16,1,0.3,1), opacity 220ms cubic-bezier(0.16,1,0.3,1); } .ds-mon[data-tally=\"on-air\"] { outline-color: var(--on-air, #f04e23); } .ds-mon[data-tally=\"open\"] { outline-color: var(--on-air, #f04e23); background: repeating-linear-gradient(-45deg, var(--on-air-soft, rgba(240,78,35,0.14)) 0 6px, transparent 6px 14px), var(--panel, #1c171f); } .ds-mon-screen { display: grid; grid-template-columns: auto 1fr; gap: 24px; padding: 24px 24px 16px; flex: 1; } .ds-meter { display: flex; flex-direction: column; align-items: center; gap: 6px; } .ds-meter-cap, .ds-meter-floor { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 0.6875rem; line-height: 1; color: var(--ink-3, #998f9e); } .ds-meter-cap { color: var(--ink-2, #c4bbc6); } .ds-meter-col { position: relative; display: flex; flex-direction: column; gap: 2px; width: 22px; height: 150px; padding-top: 4px; border-top: 1px solid var(--ink-2, #c4bbc6); } .ds-meter-col b { flex: 1; background: var(--panel-3, #2e2733); transition: background-color 90ms linear; } .ds-meter-col b:nth-child(n+2) { } .ds-meter-col b[data-lit] { background: var(--ink-2, #c4bbc6); } .ds-meter-col b[data-lit][data-hot] { background: var(--on-air, #f04e23); } .ds-meter-col b[data-peak] { background: var(--ink, #efebe6); } .ds-ticks { position: absolute; top: 4px; bottom: 0; left: calc(100% + 3px); width: 4px; background: linear-gradient(var(--ink-3, #998f9e), var(--ink-3, #998f9e)) 0 25% / 4px 1px no-repeat, linear-gradient(var(--ink-2, #c4bbc6), var(--ink-2, #c4bbc6)) 0 50% / 4px 1px no-repeat, linear-gradient(var(--ink-3, #998f9e), var(--ink-3, #998f9e)) 0 75% / 4px 1px no-repeat; } .ds-rate { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 1.3125rem; font-weight: 600; line-height: 1; } .ds-rate small { font-size: 0.75rem; color: var(--ink-2, #c4bbc6); } .ds-read { display: flex; flex-direction: column; gap: 8px; min-width: 0; } .ds-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.8125rem; font-weight: 600; } .ds-big { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 1.3125rem; } .ds-cap { font-size: 0.75rem; color: var(--ink-2, #c4bbc6); } .ds-stat { padding-top: 12px; border-top: 1px solid var(--rule, #352d3a); font-weight: 400; font-size: 0.75rem; color: var(--ink-2, #c4bbc6); } .ds-alarm { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 0.875rem; color: var(--on-air, #f04e23); } .ds-umd { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px; padding: 0 16px; border: 0; border-top: 1px solid var(--rule, #352d3a); background: #100c11; color: var(--ink, #efebe6); font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; } .ds-umd:hover { background: #0c090d; } .ds-umd:focus-visible { outline: 2px solid var(--ink, #efebe6); outline-offset: -2px; } .ds-umd-state { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; } .ds-umd-state i { width: 9px; height: 9px; background: var(--on-air, #f04e23); } .ds-umd-state strong { font-weight: 700; } .ds-mon[data-tally=\"open\"] .ds-umd-state strong { color: var(--on-air, #f04e23); } .ds-umd-state em { font-style: normal; color: var(--ink-2, #c4bbc6); text-transform: none; letter-spacing: 0; }"
+    },
+    {
+      "name": "As-Run Log",
+      "kind": "custom",
+      "refersTo": "as-run-row",
+      "description": "Timecoded hairline rows; newest row flashes in; retry attempts in amber.",
+      "html": "<section class=\"ds-log\"><header class=\"ds-log-head\"><h2>As-run log</h2></header><ol><li><a class=\"ds-log-row ds-new\" href=\"#\"><span class=\"ds-t\">09:24:09.688</span><span class=\"ds-ch\">SMS</span><span class=\"ds-st\"><i style=\"background:var(--clear,#5fe0be)\"></i>Sent</span><span class=\"ds-id\">fb080d7b</span></a></li><li><a class=\"ds-log-row\" href=\"#\"><span class=\"ds-t\">09:24:09.670</span><span class=\"ds-ch\">Push</span><span class=\"ds-st\"><i style=\"background:var(--probe,#f2b33d)\"></i>Retrying <b>#2</b></span><span class=\"ds-id\">edc95d9c</span></a></li></ol></section>",
+      "css": ".ds-log { background: var(--panel, #1c171f); border: 1px solid var(--rule, #352d3a); font-family: var(--font-ui); color: var(--ink, #efebe6); } .ds-log-head { padding: 8px 16px; border-bottom: 1px solid var(--rule, #352d3a); } .ds-log-head h2 { margin: 0; font-size: 0.875rem; font-weight: 600; } .ds-log ol { margin: 0; padding: 0; list-style: none; } .ds-log-row { display: grid; grid-template-columns: 96px 48px minmax(0,1fr) auto; align-items: center; gap: 12px; min-height: 30px; padding: 0 16px; border-bottom: 1px solid var(--rule, #352d3a); color: var(--ink, #efebe6); font-size: 0.8125rem; text-decoration: none; } .ds-log-row:hover { background: var(--panel-2, #241e28); } .ds-log-row:focus-visible { outline: 2px solid var(--ink, #efebe6); outline-offset: -2px; } .ds-new { animation: ds-arrive 220ms cubic-bezier(0.16,1,0.3,1); } @keyframes ds-arrive { from { background: var(--panel-3, #2e2733); } } .ds-t { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 0.75rem; color: var(--ink-3, #998f9e); } .ds-ch { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; } .ds-st { display: inline-flex; align-items: center; gap: 7px; } .ds-st i { width: 8px; height: 8px; } .ds-st b { color: var(--probe, #f2b33d); font-weight: 400; } .ds-id { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 0.75rem; color: var(--ink-2, #c4bbc6); text-align: right; } @media (prefers-reduced-motion: reduce) { .ds-new { animation: none; } }"
+    },
+    {
+      "name": "Problem Notice and Toast",
+      "kind": "card",
+      "refersTo": "problem-notice",
+      "description": "Inline on-air-washed notice for failed requests; floating toast with a tally lamp.",
+      "html": "<div style=\"display:flex;flex-direction:column;gap:16px\"><div class=\"ds-notice\"><div><strong>Could not load notifications</strong><p>Request 3f2a9c1e</p></div><button class=\"ds-notice-btn\">Retry</button></div><div class=\"ds-toast\"><i></i><div><strong>Provider set to outage</strong><p>Every send now fails.</p></div></div></div>",
+      "css": ".ds-notice { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 12px 16px; background: var(--on-air-soft, rgba(240,78,35,0.14)); border: 1px solid var(--on-air, #f04e23); font-family: var(--font-ui); font-size: 0.8125rem; color: var(--ink, #efebe6); } .ds-notice strong { font-weight: 600; } .ds-notice p { margin: 4px 0 0; font-size: 0.75rem; color: var(--ink-2, #c4bbc6); } .ds-notice-btn { height: 28px; padding: 0 12px; background: var(--panel-2, #241e28); border: 1px solid var(--rule-strong, #4b4151); border-radius: 0; color: var(--ink, #efebe6); font: inherit; font-weight: 600; cursor: pointer; } .ds-notice-btn:hover { background: var(--panel-3, #2e2733); border-color: var(--ink-3, #998f9e); } .ds-notice-btn:focus-visible { outline: 2px solid var(--ink, #efebe6); outline-offset: 2px; } .ds-toast { display: flex; gap: 12px; align-items: flex-start; width: 340px; padding: 12px 12px 12px 16px; background: var(--panel-2, #241e28); border: 1px solid var(--rule-strong, #4b4151); box-shadow: 0 12px 32px rgba(0,0,0,0.45); font-family: var(--font-ui); color: var(--ink, #efebe6); animation: ds-enter 220ms cubic-bezier(0.16,1,0.3,1); } .ds-toast i { flex: none; width: 8px; height: 8px; margin-top: 6px; background: linear-gradient(135deg, transparent 42%, var(--on-air, #f04e23) 42%, var(--on-air, #f04e23) 58%, transparent 58%); box-shadow: inset 0 0 0 1px var(--on-air, #f04e23); } .ds-toast strong { font-weight: 600; } .ds-toast p { margin: 2px 0 0; font-size: 0.8125rem; color: var(--ink-2, #c4bbc6); } @keyframes ds-enter { from { transform: translateY(8px); opacity: 0; } } @media (prefers-reduced-motion: reduce) { .ds-toast { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Broadcast Gallery",
+    "overview": "The console is a news gallery's control room: a dim aubergine-black wall, a multiviewer of channel monitors butted edge to edge, a label strip under each screen, segmented level meters read against a ceiling, and an as-run log ticking down the side. The room is neutral on purpose. Colour appears only where something is on air, probing, broken or confirmed, so the operator's eye lands on trouble before it reads a single word.\n\nDensity is that of an instrument panel, not a report: every number is a live reading set in a measurement face, every surface sits one tonal step above the one behind it, and every division is a one-pixel rule. Nothing is rounded, nothing glows, nothing floats except the few layers that genuinely sit over the wall (the drawer, toasts, the burst menu). State is printed: square lamps, outlines, hatching and short labels, never soft pills.\n\nThe world refuses the KPI-card row with a line chart under it. Aggregates live inside the monitors they describe, and the one throughput plot on the overview is a strip-chart with a live \"now\" edge, not a dashboard tile.",
+    "keyCharacteristics": [
+      "Gallery-black ground with monitor panels one tonal step lighter; hairline rules divide everything.",
+      "Three tally hues (on-air, probe, clear), each a state; everything else is warm off-white ink at three strengths.",
+      "Red Hat Text for words, Red Hat Mono with tabular figures for every timecode, ID, count, rate and latency.",
+      "Square corners throughout; zero radius.",
+      "Broadcast instruments as components: monitor wall, under-monitor strip, level meter with ceiling and ticks, as-run log, tally lamps.",
+      "Motion is short and state-driven: tallies, meters and log rows respond to the event stream."
+    ],
+    "rules": [
+      {
+        "name": "The Tally Rule",
+        "body": "Colour marks state and nothing else: on-air for sending and for failures that need eyes, probe for half-open and retrying, clear for confirmed sent. Queued, idle, cued, scheduled and cancelled stay neutral. If a coloured mark cannot be named as one of those states, it is grey.",
+        "section": "colors"
+      },
+      {
+        "name": "The Alarm-By-Form Rule",
+        "body": "A broken circuit or permanent failure reuses the on-air hue; it is told apart from \"on air\" by form, not by a fourth colour: diagonal hatching on the monitor, a slashed lamp, bold text and an explicit label (\"Circuit open\", \"Failed\").",
+        "section": "colors"
+      },
+      {
+        "name": "The Dim Room Rule",
+        "body": "The ground and panels stay at the darkest steps; a quiet console is nearly monochrome, and a screen with no traffic shows no colour at all apart from the primary action.",
+        "section": "colors"
+      },
+      {
+        "name": "The Measurement Rule",
+        "body": "Every timecode, identifier, count, rate and latency is set in Red Hat Mono with tabular figures, so columns hold still as values tick.",
+        "section": "typography"
+      },
+      {
+        "name": "The Strip Caps Rule",
+        "body": "Uppercase with 0.06em tracking belongs to the under-monitor strip and the stream tally, the broadcast label devices. Headings, labels and buttons stay in sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Whole-Cell Reflow Rule",
+        "body": "Grids lose columns, never shrink monitors below legibility; a monitor is always a whole monitor.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Wall Rule",
+        "body": "Anything mounted on the wall (monitors, panels, tables, inputs) has no shadow. A shadow means the layer floats and can be dismissed.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Corner Rule",
+        "body": "Radius is 0 everywhere. A rounded corner or a pill shape is foreign to this room.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do keep colour for state: on-air (#f04e23) for sending and failures, probe (#f2b33d) for half-open and retrying, clear (#5fe0be) for sent.",
+      "Do separate surfaces with one tonal step and a 1px rule, not a shadow.",
+      "Do set every number, timecode and ID in Red Hat Mono with tabular figures.",
+      "Do pair every coloured lamp with a word, so state never depends on hue alone.",
+      "Do distinguish plot series by line style (solid, dashed, dotted) in neutral ink.",
+      "Do reflow grids by whole cells: three monitors, then one.",
+      "Do keep transitions on the single ease-out curve at 150ms or 220ms and honour reduced motion."
+    ],
+    "donts": [
+      "Don't round corners or use pill badges; lamps and outlines are square.",
+      "Don't colour idle, queued, cued, scheduled or cancelled states.",
+      "Don't introduce a fourth tally hue for alarms; alarms reuse on-air with hatching, a slashed lamp and a label.",
+      "Don't shadow anything mounted on the wall; only the drawer, toasts and menus float.",
+      "Don't build KPI-card rows; aggregates live inside the monitor they describe.",
+      "Don't use uppercase tracked text outside the under-monitor strip and the stream tally."
+    ]
+  }
+}
