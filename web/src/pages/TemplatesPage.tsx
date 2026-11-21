@@ -178,7 +178,7 @@ function TemplateEditor({ template, onSaved, onDeleted }: EditorProps) {
               </Button>
             )
           )}
-          <Button type="submit" variant="primary" icon={<Save />} busy={save.isPending}>
+          <Button type="submit" icon={<Save />} busy={save.isPending}>
             {template ? "Save changes" : "Create template"}
           </Button>
         </div>
