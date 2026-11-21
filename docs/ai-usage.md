@@ -18,7 +18,7 @@ work depending on them started:
 | Question | Decision |
 |---|---|
 | Language and setup | Go, with everything runnable through Docker Compose |
-| Version control | Small conventional commits as each piece is finished; nothing pushed by the agent |
+| Version control | Small conventional commits as each piece is finished, pushed only when the developer asked |
 | Who the console is for | On-call and operations engineers |
 | How the console presents itself | An internal Insider One tool, in the brand palette, with no logo and no official claims |
 | Console stack | React, TypeScript and Vite |
@@ -89,7 +89,8 @@ These came out of the checks above, not out of the first draft:
 
 ## Limits
 
-- The agent did not push to any remote, create accounts or use credentials. The bundled
+- The agent pushed to GitHub only when the developer asked, through the developer's own
+  GitHub CLI login. It created no accounts and never saw or typed a credential. The bundled
   mock provider made it possible to test failure modes without depending on webhook.site.
 - An AI reviewer is a useful second reader, not a substitute for a human one. The decision
   records and this page exist so that a human reviewer can check the reasoning, not just
